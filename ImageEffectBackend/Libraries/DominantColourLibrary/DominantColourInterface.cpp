@@ -50,7 +50,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_DominantColourInterface_ap
 
 
 
-
+applyDominantColour(imageVector);
 
 
     // Call the function here

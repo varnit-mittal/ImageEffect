@@ -2,14 +2,21 @@ package com.iiitb.imageEffectApplication.service;
 
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
 import libraryInterfaces.BrightnessInterface;
+import libraryInterfaces.ContrastInterface;
 import libraryInterfaces.InvertInterface;
+import libraryInterfaces.DominantColourInterface;
 import libraryInterfaces.Pixel;
+import libraryInterfaces.FlipInterface;
+import libraryInterfaces.SepiaInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.io.IOException;
+
+import static libraryInterfaces.FlipInterface.applyFlip;
 
 @Service
 public class PhotoEffectService {
@@ -77,7 +84,7 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = ContrastInterface.applyContrast(inputImage,amount); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -101,7 +108,7 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = FlipInterface.applyFlip(inputImage,horizontalFlipValue,verticalFlipValue); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -210,7 +217,7 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = SepiaInterface.applySepia(inputImage); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -250,7 +257,7 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = DominantColourInterface.applyDominantColour(inputImage); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
