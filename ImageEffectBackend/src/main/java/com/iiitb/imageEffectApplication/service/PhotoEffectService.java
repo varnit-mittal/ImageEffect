@@ -1,13 +1,7 @@
 package com.iiitb.imageEffectApplication.service;
 
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
-import libraryInterfaces.BrightnessInterface;
-import libraryInterfaces.ContrastInterface;
-import libraryInterfaces.InvertInterface;
-import libraryInterfaces.DominantColourInterface;
-import libraryInterfaces.Pixel;
-import libraryInterfaces.FlipInterface;
-import libraryInterfaces.SepiaInterface;
+import libraryInterfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +30,7 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = HueSaturationInterface.applyHueSaturation(inputImage,saturationAmount,hueAmount); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -155,7 +149,7 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = GrayscaleInterface.applyGrayscale(inputImage); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
