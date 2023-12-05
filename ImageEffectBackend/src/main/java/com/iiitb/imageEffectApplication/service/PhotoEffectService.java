@@ -126,7 +126,7 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = GaussianBlurInterface.applyGaussianBlur(inputImage,radius); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -190,7 +190,7 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = RotationInterface.applyRotation(inputImage,value); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
