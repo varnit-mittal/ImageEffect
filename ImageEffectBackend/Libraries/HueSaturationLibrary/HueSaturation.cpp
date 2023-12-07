@@ -16,7 +16,7 @@ void applyHueSaturation(vector< vector<Pixel> > &image, float saturationValue, f
     {
         for(int j=0;j<n;j++)
         {
-            float h = hueValue;
+            float h = hueValue*3.6;
             float s= max(0.0,min(1.0,saturationValue/100.0));
             float l = (max({image[i][j].r,image[i][j].g,image[i][j].b}) + min({image[i][j].r,image[i][j].g,image[i][j].b}))/200.0;
             float c = (1 - abs(2 * l - 1)) * s;

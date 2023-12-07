@@ -56,7 +56,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_SharpenInterface_applyShar
     // Call the function here
     // TODO
 
-
+    applySharpen(imageVector, amount);
 
 
 
