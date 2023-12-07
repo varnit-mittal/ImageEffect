@@ -14,7 +14,7 @@ void applySharpen(vector<vector<Pixel>> &image, float value)
       };
       int height = image.size();
       int width = image[0].size();
-      value=value/30.0;
+      value=value/45.0;
       vector<vector<vector<int>>> newImage(height, vector<vector<int>>(width, vector<int>(3, 0)));
 
           for (int i = 1; i < height - 1; ++i) {
