@@ -1,5 +1,4 @@
 package com.iiitb.imageEffectApplication.service;
-
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
 import libraryInterfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,61 +6,38 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
-
-import static libraryInterfaces.FlipInterface.applyFlip;
 
 @Service
 public class PhotoEffectService {
-
+    
     @Autowired
     private ProcessingUtils processingUtils;
 
     @Autowired
-    private LoggingService loggingService;
+    private LoggingService loggingService=new LoggingService();
 
     public ResponseEntity<byte[]> applyHueSaturationEffect(float hueAmount, float saturationAmount, MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-
-            // ACTUAL WORK STARTS HERE
-
-            // TODO
-            Pixel[][] modifiedImage = HueSaturationInterface.applyHueSaturation(inputImage,saturationAmount,hueAmount); // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
-
+            Pixel[][] modifiedImage = HueSaturationInterface.applyHueSaturation(inputImage,saturationAmount,hueAmount);
+            loggingService.addLog(imageName,"HueSaturation","Hue - "+String.valueOf(hueAmount)+" / Sat. - "+String.valueOf(saturationAmount));
             return processingUtils.postProcessing(modifiedImage);
-
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
     }
 
     public ResponseEntity<byte[]> applyBrightnessEffect(float amount, MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-
-
-
-            // ACTUAL WORK STARTS HERE
-
-            // TODO
-            Pixel[][] modifiedImage = BrightnessInterface.applyBrightness(inputImage,amount); // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
-
-
+            Pixel[][] modifiedImage = BrightnessInterface.applyBrightness(inputImage,amount);
+            loggingService.addLog(imageName,"Brightness",String.valueOf(amount));
             return processingUtils.postProcessing(modifiedImage);
-
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -72,18 +48,8 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-
-
-            // ACTUAL WORK STARTS HERE
-
-            // TODO
-            Pixel[][] modifiedImage = ContrastInterface.applyContrast(inputImage,amount); // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
-
-
+            Pixel[][] modifiedImage = ContrastInterface.applyContrast(inputImage,amount);
+            loggingService.addLog(imageName,"Contrast",String.valueOf(amount));
             return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
@@ -96,21 +62,26 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-
-
-            // ACTUAL WORK STARTS HERE
-
-            // TODO
-            Pixel[][] modifiedImage = FlipInterface.applyFlip(inputImage,horizontalFlipValue,verticalFlipValue); // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
-
-
-
+            Pixel[][] modifiedImage = FlipInterface.applyFlip(inputImage,horizontalFlipValue,verticalFlipValue);
+            String lopvalue=" ";
+            if(horizontalFlipValue==1 && verticalFlipValue==1)
+            {
+                lopvalue+="HFlip and VFlip ";
+            }
+            else if(horizontalFlipValue==1)
+            {
+                lopvalue+="HFlip ";
+            }
+            else if(verticalFlipValue==1)
+            {
+                lopvalue+="VFlip ";
+            }
+            else
+            {
+                lopvalue=" --- ";
+            }
+            loggingService.addLog(imageName,"Flip",lopvalue);
             return processingUtils.postProcessing(modifiedImage);
-
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -121,19 +92,9 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-
-            // ACTUAL WORK STARTS HERE
-
-            // TODO
-            Pixel[][] modifiedImage = GaussianBlurInterface.applyGaussianBlur(inputImage,radius); // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
-
-
+            Pixel[][] modifiedImage = GaussianBlurInterface.applyGaussianBlur(inputImage,radius);
+            loggingService.addLog(imageName,"GaussianBlur",String.valueOf(radius));
             return processingUtils.postProcessing(modifiedImage);
-
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -144,17 +105,9 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-
-            // ACTUAL WORK STARTS HERE
-
-            // TODO
-            Pixel[][] modifiedImage = GrayscaleInterface.applyGrayscale(inputImage); // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
+            Pixel[][] modifiedImage = GrayscaleInterface.applyGrayscale(inputImage);
+            loggingService.addLog(imageName,"Grayscale"," --- ");
             return processingUtils.postProcessing(modifiedImage);
-
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -165,16 +118,9 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-            // ACTUAL WORK STARTS HERE
-
-            // TODO
-            Pixel[][] modifiedImage = InvertInterface.applyInvert(inputImage); // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
+            Pixel[][] modifiedImage = InvertInterface.applyInvert(inputImage);
+            loggingService.addLog(imageName,"Invert"," --- ");
             return processingUtils.postProcessing(modifiedImage);
-
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -185,18 +131,26 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-
-            // ACTUAL WORK STARTS HERE
-
-            // TODO
-            Pixel[][] modifiedImage = RotationInterface.applyRotation(inputImage,value); // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
-
+            Pixel[][] modifiedImage = RotationInterface.applyRotation(inputImage,value);
+            String logvalue="";
+            if(value==1)
+            {
+                logvalue="90";
+            }
+            else if(value==2)
+            {
+                logvalue="180";
+            }
+            else if(value==3)
+            {
+                logvalue="270";
+            }
+            else
+            {
+                logvalue=" --- ";
+            }
+            loggingService.addLog(imageName,"Rotation",logvalue);
             return processingUtils.postProcessing(modifiedImage);
-
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -207,16 +161,9 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-            // ACTUAL WORK STARTS HERE
-
-            // TODO
-            Pixel[][] modifiedImage = SepiaInterface.applySepia(inputImage); // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
+            Pixel[][] modifiedImage = SepiaInterface.applySepia(inputImage);
+            loggingService.addLog(imageName,"Sepia"," --- ");
             return processingUtils.postProcessing(modifiedImage);
-
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -227,36 +174,21 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-            // ACTUAL WORK STARTS HERE
-
-            // TODO
-            Pixel[][] modifiedImage = SharpenInterface.applySharpen(inputImage,amount); // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
+            Pixel[][] modifiedImage = SharpenInterface.applySharpen(inputImage,amount);
+            loggingService.addLog(imageName,"Sharpen",String.valueOf(amount));
             return processingUtils.postProcessing(modifiedImage);
-
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     public ResponseEntity<byte[]> getDominantColour(MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
-
-            // ACTUAL WORK STARTS HERE
-
-            // TODO
-            Pixel[][] modifiedImage = DominantColourInterface.applyDominantColour(inputImage); // Replace this with actual modified image
-
-            // ACTUAL WORK ENDS HERE
-
+            Pixel[][] modifiedImage = DominantColourInterface.applyDominantColour(inputImage);
+            loggingService.addLog(imageName,"DominantColour"," --- ");
             return processingUtils.postProcessing(modifiedImage);
-
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
