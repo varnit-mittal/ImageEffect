@@ -11,6 +11,19 @@ import java.util.List;
 public class LoggingService {
 
     public void addLog(String fileName, String effectName, String optionValues) {
+        try
+        {
+            File file = new File("log.log");
+            if(!file.exists())
+            {
+                file.createNewFile();
+            }
+
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
         LocalDateTime localDateTime = LocalDateTime.now();
         String timestamp = localDateTime.toString();
         try
@@ -23,7 +36,7 @@ public class LoggingService {
         }
         catch (IOException e)
         {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -31,7 +44,12 @@ public class LoggingService {
         List<LogModel> logs=new ArrayList<>();
         try
         {
-            FileReader reader=new FileReader("log.log");
+            File file = new File("log.log");
+            if(!file.exists())
+            {
+                file.createNewFile();
+            }
+            FileReader reader=new FileReader(file);
             BufferedReader buffer = new BufferedReader(reader);
             String line;
             while((line=buffer.readLine())!=null)
@@ -44,7 +62,7 @@ public class LoggingService {
         }
         catch (IOException e)
         {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return logs;
     }
@@ -53,7 +71,12 @@ public class LoggingService {
         List<LogModel> logs=new ArrayList<>();
         try
         {
-            FileReader reader=new FileReader("log.log");
+            File file = new File("log.log");
+            if(!file.exists())
+            {
+                file.createNewFile();
+            }
+            FileReader reader=new FileReader(file);
             BufferedReader buffer = new BufferedReader(reader);
             String line;
             while((line=buffer.readLine())!=null)
@@ -69,7 +92,7 @@ public class LoggingService {
         }
         catch (IOException e)
         {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return logs;
     }
@@ -77,21 +100,31 @@ public class LoggingService {
     public void clearLogs() {
         try
         {
-            FileWriter fw= new FileWriter("log.log", false);
+            File file = new File("log.log");
+            if(!file.exists())
+            {
+                file.createNewFile();
+            }
+            FileWriter fw= new FileWriter(file, false);
             fw.write("");
             fw.close();
         }
         catch (Exception e)
         {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return;
     }
     public List<LogModel> getLogsBetweenTimestamps(LocalDateTime startTime, LocalDateTime endTime)
     {
-        List<LogModel> logsBetweenTimestamps= new ArrayList<LogModel>();
+        List<LogModel> logsBetweenTimestamps= new ArrayList<>();
         try{
-            FileReader fileReader = new FileReader("log.log");
+            File file = new File("log.log");
+            if(!file.exists())
+            {
+                file.createNewFile();
+            }
+            FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
             while ((line = bufferedReader.readLine()) != null){
@@ -110,7 +143,7 @@ public class LoggingService {
             bufferedReader.close();
         }
         catch (IOException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         return logsBetweenTimestamps;
     }
