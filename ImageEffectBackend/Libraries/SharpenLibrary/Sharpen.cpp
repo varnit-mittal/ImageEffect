@@ -44,18 +44,21 @@ void applySharpen(vector<vector<Pixel>> &image, float value)
                 if(k==0)
                 {
                     int delta = newImage[i][j][k] - image[i][j].r;
+//                      image[i][j].r=min(255,max(0,newImage[i][j][k]));
                     image[i][j].r= min(255, max(0, image[i][j].r + (int)(value* delta)));
 //                    image[i][j].r=255;
                 }
                 else if(k==1)
                 {
                     int delta = newImage[i][j][k] - image[i][j].g;
+//                    image[i][j].g=min(255,max(0,newImage[i][j][k]));
                     image[i][j].g= min(255, max(0, image[i][j].g + (int)(value* delta)));
 //                    image[i][j].g=255;
                 }
                 else if(k==2)
                 {
                     int delta = newImage[i][j][k] - image[i][j].b;
+//                    image[i][j].b=min(255,max(0,newImage[i][j][k]));
                     image[i][j].b= min(255, max(0, image[i][j].b + (int)(value* delta)));
 //                    image[i][j].b= min(255, max(0, image[i][j].b + 1000*delta));
                 }
