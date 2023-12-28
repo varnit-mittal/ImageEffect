@@ -41,6 +41,7 @@ public class LoggingService {
     }
 
     public List<LogModel> getAllLogs() {
+
         List<LogModel> logs=new ArrayList<>();
         try
         {
