@@ -43,22 +43,12 @@ The link to our Project
 ```
 Right click on the libraries directory and go to the Mark directory as > sources root
 
-Open the "P2-2023-Project\ImageEffectBackend\" folder in IntelliJ. IntelliJ should automatically identify the project structure.
+Open the "P2-2023-Project\ImageEffectBackend\" folder in IntelliJ. IntelliJ should automatically identify the project structure. Go, to  
 ```bash
-  cd ImageEffect
+ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/ImageEffectApplication.java
 ```
-```bash
-  make clean
-```
-```bash
-  make
-```
-```bash
-  ./mvnw clean package
-```
-```bash
-   java -jar target/<name of Jar file>.jar
-```
+and  click run.
+
 
 
 ## Deployment
