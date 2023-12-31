@@ -9,7 +9,7 @@ import com.iiitb.imageEffectApplication.service.LoggingService;
 public class Contrast implements SingleValueParameterizableEffect{
     private float amount;
     public void setParameterValue(float amt) throws IllegalParameterException{
-        if (amt < 0 || amt > 100) throw new IllegalParameterException("Illegal parameters. Parameters must be in the range 0 to 100");
+        if (amt < 0 || amt > 200) throw new IllegalParameterException("Illegal parameters. Parameters must be in the range 0 to 100");
         this.amount = amt;
     }
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
