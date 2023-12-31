@@ -81,12 +81,36 @@ To deploy this project's Backend go to the Backend image effect folder then run 
 - [Siddharth Vikram](https://github.com/SiddharthVikram069)
 
 
-## Acknowledgements
+## Contributions
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Readme Maker](https://readme.so)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
--  [IIIT-B Programming 2 dept.](https://github.com/IIITBangalore/P2-2023-Project)
+### Varnit Mittal
+- Hue Saturation library
+- Image Sharpening library
+- Logs 
+- Documentation
+
+### Aditya Priyadarshi
+- Dominant Color library
+- Brightness library
+- Logs
+- Documentation
+
+### Siddharth Vikram
+- Invert library
+- Grayscale library
+- Comments
+
+### Tanish Pathania
+- Rotation library
+- Gaussian Blur library
+- Sepia Effect library
+- Comments
+
+### Hemang Seth
+- Flip library
+- Contrast library
+- Readme
+
 
 ## Documentation
 
@@ -95,5 +119,5 @@ To deploy this project's Backend go to the Backend image effect folder then run 
 
 ## License
 
-[IIIT-Banglore](https://learn.iiitb.net/login/index.php)
+[MIT](https://choosealicense.com/licenses/mit/)
 
