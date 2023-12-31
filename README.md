@@ -119,5 +119,5 @@ To deploy this project's Backend go to the Backend image effect folder then run 
 
 ## License
 
-[MIT]([https://choosealicense.com/licenses/mit/](https://github.com/varnit-mittal/ImageEffect/blob/main/LICENSE)https://github.com/varnit-mittal/ImageEffect/blob/main/LICENSE)
+[MIT](https://choosealicense.com/licenses/mit/](https://github.com/varnit-mittal/ImageEffect/blob/main/LICENSE)https://github.com/varnit-mittal/ImageEffect/blob/main/LICENSE)
 
