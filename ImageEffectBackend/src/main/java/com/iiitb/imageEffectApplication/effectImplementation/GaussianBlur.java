@@ -9,7 +9,7 @@ import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 public class GaussianBlur implements SingleValueParameterizableEffect{
     private float amount;
     public void setParameterValue(float amount) throws IllegalParameterException{
-        if (amount < 0 || amount > 100) throw new IllegalParameterException("Illegal parameters. Parameters must be in the range 0 to 100");
+        if (amount < 0 || amount > 50) throw new IllegalParameterException("Illegal parameters. Parameters must be in the range 0 to 100");
         this.amount = amount;
     }
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){

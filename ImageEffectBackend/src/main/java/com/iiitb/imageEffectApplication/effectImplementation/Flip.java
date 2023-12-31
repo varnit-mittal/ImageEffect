@@ -20,8 +20,8 @@ public class Flip implements DiscreteEffect{
         if(this.h!=0 && this.v!=0) s="Horizontal and Vertical";
         else if(this.h!=0) s="Horizontal";
         else if(this.v!=0) s="Vertical";
-
-        loggingService.addLog(fileName, "Flip", s);
+        else s="No ";
+        loggingService.addLog(fileName, "Flip", s + " Flip");
         return FlipInterface.applyFlip(image, h, v);
     }
 }

@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
 @Service
 public class LoggingService {
 
@@ -58,6 +60,7 @@ public class LoggingService {
                 String[] log=line.split(",");
                 logs.add(new LogModel(log[2],log[3],log[0],log[1]));
             }
+            Collections.reverse(logs);
             buffer.close();
             reader.close();
         }
