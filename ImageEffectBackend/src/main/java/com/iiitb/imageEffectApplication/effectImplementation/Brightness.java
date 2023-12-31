@@ -8,6 +8,9 @@ import com.iiitb.imageEffectApplication.service.LoggingService;
 
 public class Brightness implements SingleValueParameterizableEffect{
     private float amount;
+    public float getAmount(){
+        return this.amount;
+    }
     public void setParameterValue(float amount) throws IllegalParameterException{
         if (amount < 0 || amount > 200) throw new IllegalParameterException("Illegal parameters. Parameters must be in the range 0 to 100");
         this.amount = amount;
