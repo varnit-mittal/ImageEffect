@@ -53,7 +53,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_HueSaturationInterface_app
 
 
 
-    // Call the function here
+    // Called the applyHueSaturation function from HueSaturation.h
     applyHueSaturation(imageVector, static_cast<float>(saturationValue), static_cast<float>(hueValue));
 
 
