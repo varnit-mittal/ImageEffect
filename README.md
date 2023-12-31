@@ -31,9 +31,9 @@ The link to our Project
 
 ## Tech Stack
 
-**Client:** Node, Angular, React 
+**Frontend:** Angular
 
-**Server:** C++, Java
+**Backend:** C++, Java
 
 
 ## Demo
