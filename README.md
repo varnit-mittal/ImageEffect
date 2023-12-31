@@ -60,15 +60,7 @@ then run the following commands
   npm i
 ```
 ```bash
-  npm start
-```
-To deploy this project's Backend go to the Backend image effect folder then run the following commands
-
-```bash
-  npm i
-```
-```bash
-  npm start
+  npx ng serve
 ```
 
 ## Authors
