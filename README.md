@@ -82,7 +82,7 @@ then run the following commands
 - Documentation
 
 ### Aditya Priyadarshi
-- Dominant Color library
+- Rotation library
 - Brightness library
 - Logs
 - Documentation
@@ -93,7 +93,7 @@ then run the following commands
 - Comments
 
 ### Tanish Pathania
-- Rotation library
+- Dominant Color library
 - Gaussian Blur library
 - Sepia Effect library
 - Comments
