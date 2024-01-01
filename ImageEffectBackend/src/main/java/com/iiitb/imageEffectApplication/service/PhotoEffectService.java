@@ -1,5 +1,16 @@
 package com.iiitb.imageEffectApplication.service;
-
+import com.iiitb.imageEffectApplication.baseEffects.*;
+import com.iiitb.imageEffectApplication.effectImplementation.*;
+import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
+import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
+import libraryInterfaces.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import java.io.IOException;
+import com.iiitb.imageEffectApplication.effectImplementation.*;
 // Import statements
 
   //Service class for applying various photo effects on images.
