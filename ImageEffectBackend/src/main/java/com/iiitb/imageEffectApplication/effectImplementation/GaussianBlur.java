@@ -1,22 +1,62 @@
+// package com.iiitb.imageEffectApplication.effectImplementation;
+
+// import com.iiitb.imageEffectApplication.baseEffects.SingleValueParameterizableEffect;
+// import com.iiitb.imageEffectApplication.service.LoggingService;
+// import libraryInterfaces.Pixel;
+// import libraryInterfaces.GaussianBlurInterface;
+// import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
+
+// public class GaussianBlur implements SingleValueParameterizableEffect{
+//     private float amount;
+//     public float getAmount(){
+//         return this.amount;
+//     }
+//     public void setParameterValue(float amount) throws IllegalParameterException{
+//         if (amount < 0 || amount > 50) throw new IllegalParameterException("Illegal parameters. Parameters must be in the range 0 to 100");
+//         this.amount = amount;
+//     }
+//     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
+//         loggingService.addLog(fileName, "Gaussian Blur", Float.toString(amount));
+//         return GaussianBlurInterface.applyGaussianBlur(image, amount);
+//     }
+// }
+// Package declaration for the Gaussian Blur effect implementation.
 package com.iiitb.imageEffectApplication.effectImplementation;
 
+// Import statements for required libraries and classes.
 import com.iiitb.imageEffectApplication.baseEffects.SingleValueParameterizableEffect;
 import com.iiitb.imageEffectApplication.service.LoggingService;
 import libraryInterfaces.Pixel;
 import libraryInterfaces.GaussianBlurInterface;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 
-public class GaussianBlur implements SingleValueParameterizableEffect{
+// Class definition for the Gaussian Blur effect implementing the SingleValueParameterizableEffect interface.
+public class GaussianBlur implements SingleValueParameterizableEffect {
+
+    // Private field to store the amount of blur.
     private float amount;
-    public float getAmount(){
+
+    // Getter method to retrieve the current amount of blur.
+    public float getAmount() {
         return this.amount;
     }
-    public void setParameterValue(float amount) throws IllegalParameterException{
-        if (amount < 0 || amount > 50) throw new IllegalParameterException("Illegal parameters. Parameters must be in the range 0 to 100");
+
+    // Setter method to set the amount of blur with validation.
+    // Throws IllegalParameterException if the value is outside the valid range [0, 50].
+    public void setParameterValue(float amount) throws IllegalParameterException {
+        if (amount < 0 || amount > 50) {
+            throw new IllegalParameterException("Illegal parameters. Parameters must be in the range 0 to 50");
+        }
         this.amount = amount;
     }
-    public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
+
+    // Implementation of the apply method from the SingleValueParameterizableEffect interface.
+    // Applies the Gaussian Blur effect to the given image, logs the action, and returns the modified image.
+    public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
+        // Log the Gaussian Blur effect action.
         loggingService.addLog(fileName, "Gaussian Blur", Float.toString(amount));
+
+        // Call the static applyGaussianBlur method from the GaussianBlurInterface to apply the effect.
         return GaussianBlurInterface.applyGaussianBlur(image, amount);
     }
 }
