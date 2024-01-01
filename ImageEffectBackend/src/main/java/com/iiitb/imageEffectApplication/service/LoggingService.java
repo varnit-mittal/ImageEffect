@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class LoggingService {
@@ -86,7 +87,7 @@ public class LoggingService {
             while((line=buffer.readLine())!=null)
             {
                 String[] log=line.split(",");
-                if(log[0].equals(effectName))
+                if(log[0].equalsIgnoreCase(effectName))
                 {
                     logs.add(new LogModel(log[2],log[3],log[0],log[1]));
                 }

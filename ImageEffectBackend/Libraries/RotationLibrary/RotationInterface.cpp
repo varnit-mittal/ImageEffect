@@ -47,8 +47,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_RotationInterface_applyRot
 
 
 
-    // Call the function here
-    // TODO
+    // Called the applyRotation function from the Rotation.h file
     vector<vector<Pixel>> sol= applyRotation(imageVector, value);
 
 

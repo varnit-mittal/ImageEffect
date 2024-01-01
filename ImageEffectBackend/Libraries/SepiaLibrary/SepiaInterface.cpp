@@ -53,8 +53,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_SepiaInterface_applySepia
 
 
 
-    // Call the function here
-    // TODO
+    // Called the applySepia function from the Sepia.h file
     applySepia(imageVector);
 
 

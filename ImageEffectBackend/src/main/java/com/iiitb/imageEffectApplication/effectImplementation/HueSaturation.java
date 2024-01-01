@@ -9,7 +9,12 @@ import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 public class HueSaturation implements ParameterizableEffect{
     private float hue;
     private float sat;
-
+    public float getHue(){
+        return this.hue;
+    }
+    public float getSat(){
+        return this.sat;
+    }
     public void setParameter( String str ,float val) throws  IllegalParameterException{
         if(val<0 || val>100) throw new IllegalParameterException("Illegal parameters. Parameters must be in the range 0 to 100");
         if(str.equals("H"))this.hue=val;
