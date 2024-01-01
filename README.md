@@ -106,7 +106,7 @@ then run the following commands
 
 ## Documentation
 
-[Documentation](https://github.com/varnit-mittal/ImageEffect/blob/main/Image%20Processing%20Application.pdf)
+[Documentation](https://github.com/varnit-mittal/ImageEffect/blob/main/Image_Effect.pdf)
 
 
 ## License
