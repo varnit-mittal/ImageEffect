@@ -20,10 +20,10 @@ void applyContrast(vector<vector<Pixel>> &imageVector, float amount)
         {
             // Apply contrast adjustment to the red component of the pixel.
             imageVector[i][j].r = max((float)0, min((float)255, (imageVector[i][j].r - 128) * amount + 128));
-            
+
             // Apply contrast adjustment to the green component of the pixel.
             imageVector[i][j].g = max((float)0, min((float)255, (imageVector[i][j].g - 128) * amount + 128));
-            
+
             // Apply contrast adjustment to the blue component of the pixel.
             imageVector[i][j].b = max((float)0, min((float)255, (imageVector[i][j].b - 128) * amount + 128));
         }

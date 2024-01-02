@@ -53,13 +53,16 @@ and  click run.
 
 ## Deployment
 
-To deploy this project's frontend go to the Frontend image effect folder
-then run the following commands 
+To deploy this project's frontend go to the directory itself
 
 ```bash
   npm i
 ```
+Then go to the project's frontend
+
 ```bash
+  cd ImageEffectFrontend
+  npm i
   npx ng serve
 ```
 
