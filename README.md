@@ -24,7 +24,7 @@ It also features a logging service which keeps track of all the changes made to 
 
 ##  Link
 
-The link to our Project
+The link to our Project is given below->
 
 [Image Processing](https://github.com/varnit-mittal/ImageEffect)
 
